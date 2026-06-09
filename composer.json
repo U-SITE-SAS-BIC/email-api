@@ -1,5 +1,37 @@
 {
+    "name": "u-site/email-api-switch",
+    "description": "Pure email switch API — receives SMTP credentials + rendered HTML and forwards via PHPMailer. No storage, no templates.",
+    "type": "project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "U/SITE.APP SAS BIC",
+            "email": "dev@u-s.app",
+            "homepage": "https://u-s.app"
+        },
+        {
+            "name": "Lizandro Guarnizo",
+            "role": "Developer"
+        }
+    ],
     "require": {
+        "php": ">=8.1",
         "phpmailer/phpmailer": "^7.0"
-    }
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php",
+            "src/auth.php",
+            "src/MailService.php"
+        ]
+    },
+    "scripts": {
+        "serve": "php -S localhost:8000"
+    },
+    "support": {
+        "issues": "https://github.com/U-SITE-SAS-BIC/email-api/issues",
+        "source": "https://github.com/U-SITE-SAS-BIC/email-api"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
