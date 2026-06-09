@@ -1,0 +1,46 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+
+      - name: Install Composer dependencies
+        run: |
+          composer install --no-dev --optimize-autoloader
+        env:
+          COMPOSER_ALLOW_SUPERUSER: 1
+
+      - name: Create .env from secret
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_TARGET_DIR }}/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.env.example
+            **/composer.json
+            **/composer.lock
+            **/.github/
+            **/README.md
+            **/LICENSE
