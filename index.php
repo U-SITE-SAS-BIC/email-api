@@ -34,6 +34,11 @@
 
 declare(strict_types=1);
 
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoload)) {
+    require_once $autoload;
+}
+
 require_once __DIR__ . '/src/helpers.php';
 require_once __DIR__ . '/src/auth.php';
 require_once __DIR__ . '/src/MailService.php';
@@ -114,6 +119,12 @@ if ($errors) {
 
 // ── 8. Enviar ─────────────────────────────────────────────────────────────────
 try {
+    if (!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+        throw new \RuntimeException(
+            'PHPMailer no está instalado. Ejecuta: composer install'
+        );
+    }
+
     (new MailService())->send(
         [
             'host' => $smtp['host'],
