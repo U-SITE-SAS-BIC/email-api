@@ -114,7 +114,7 @@ function renderLandingPage(): void
     header('Content-Type: text/html; charset=utf-8');
 
     $repoUrl = 'https://github.com/U-SITE-SAS-BIC/email-api';
-    $siteUrl = 'https://u-s.app';
+    $siteUrl = 'https://u-site.app';
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -7,7 +7,7 @@
 **API ligera y sin estado para reenvío de correos SMTP.**  
 Recibe credenciales SMTP + HTML ya renderizado (desde Laravel, Blade o cualquier backend) y entrega el mensaje **sin almacenar, modificar ni inspeccionar el contenido**.
 
-Creado y mantenido por **[U/SITE.APP SAS BIC](https://u-s.app)**.
+Creado y mantenido por **[U/SITE.APP SAS BIC](https://u-site.app)**.
 
 ---
 
@@ -264,12 +264,12 @@ email-api/
 
 ## Licencia
 
-Copyright 2025 [U/SITE.APP SAS BIC](https://u-s.app)
+Copyright 2025 [U/SITE.APP SAS BIC](https://u-site.app)
 
 Licenciado bajo Apache License, Version 2.0. Ver [LICENSE](LICENSE) para el texto completo.
 
 ---
 
 <div align="center">
-  <sub>Hecho con ❤️ por <a href="https://u-s.app">U/SITE.APP</a></sub>
+  <sub>Hecho con ❤️ por <a href="https://u-site.app">U/SITE.APP</a></sub>
 </div>
